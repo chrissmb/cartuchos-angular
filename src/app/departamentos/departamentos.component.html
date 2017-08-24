@@ -1,3 +1,23 @@
-<p>
-  departamentos works!
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col l6 s12">
+            <h5>Departamentos</h5>
+    
+            <div class="collection">
+                <a class="collection-item" 
+                        *ngFor="let departamento of departamentos"
+                        routerLinkActive="active"
+                        [routerLink]="['/departamentos', departamento.id]"
+                        [style.color]="!departamento.ativo ? 'grey' : ''">
+                    {{ departamento.descricao }}
+                </a>
+            </div>
+            
+            <a class="btn-floating btn-large waves-effect waves-light red right">
+                <i class="material-icons">add</i>
+            </a>
+        </div>
+    </div>
+    
+</div>
+

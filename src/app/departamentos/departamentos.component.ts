@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DepartamentosService } from './departamentos.service';
+import { Departamento } from './departamento';
+
 @Component({
   selector: 'app-departamentos',
   templateUrl: './departamentos.component.html',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DepartamentosComponent implements OnInit {
 
-  constructor() { }
+  departamentos: Departamento[];
+
+  constructor(private departamentosService: DepartamentosService) { }
 
   ngOnInit() {
+    this.departamentos = this.departamentosService.getDepartamentos();
   }
 
 }

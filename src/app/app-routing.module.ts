@@ -3,9 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: "departamentos",
+    loadChildren: 'app/departamentos/departamentos.module#DepartamentosModule'
+  }/*,
+  {
     path: '',
     children: []
-  }
+  }*/
 ];
 
 @NgModule({

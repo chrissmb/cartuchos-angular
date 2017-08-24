@@ -11,6 +11,7 @@ import { Departamento } from './departamento';
 export class DepartamentosComponent implements OnInit {
 
   departamentos: Departamento[];
+  consultaInativos = false;
 
   constructor(private departamentosService: DepartamentosService) { }
 

@@ -16,7 +16,16 @@ export class DepartamentosComponent implements OnInit {
   constructor(private departamentosService: DepartamentosService) { }
 
   ngOnInit() {
-    this.departamentos = this.departamentosService.getDepartamentos();
+    this.getDepartamentos();
+  }
+
+  getDepartamentos() {
+    if (this.consultaInativos) {
+      this.departamentosService.getDepartamentosTodos().subscribe(deptos => this.departamentos = deptos);
+    } else {
+      this.departamentosService.getDepartamentosAtivos().subscribe(deptos => this.departamentos = deptos);
+
+    }
   }
 
 }

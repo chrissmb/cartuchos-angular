@@ -4,5 +4,5 @@ export class Departamento {
         public id: number,
         public descricao: string,
         public ativo: boolean
-    ){}
+    ) {}
 }

@@ -13,33 +13,8 @@ export class DepartamentosService {
 
   constructor(private http: Http) {
     const auth = window.btoa('chris:123456');
-    console.log('senha:' + auth);
     this.headers.append('Authorization', 'Basic ' + auth);
   }
-
-  /*getDepartamentos() {
-    let dpt1 = {
-      id: 1,
-      descricao: "Administração",
-      ativo: true
-    };
-    let dpt2 = {
-      id: 2,
-      descricao: "TI",
-      ativo: true
-    };
-    let dpt3 = {
-      id: 3,
-      descricao: "RH",
-      ativo: false
-    };
-    let dpt4 = {
-      id: 1,
-      descricao: "Contabilidae",
-      ativo: true
-    };
-    return [dpt1, dpt2, dpt3, dpt4];
-}*/
 
   getDepartamentosAtivos(): Observable<Departamento[]> {
     return this.http

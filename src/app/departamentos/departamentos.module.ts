@@ -7,6 +7,7 @@ import { DepartamentosComponent } from './departamentos.component';
 import { DepartamentosService } from './departamentos.service';
 import { FormsModule } from '@angular/forms';
 import { DepartamentoDetalheComponent } from './departamento-detalhe/departamento-detalhe.component';
+import { DepartamentoFormComponent } from './departamento-form/departamento-form.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { DepartamentoDetalheComponent } from './departamento-detalhe/departament
   ],
   declarations: [
     DepartamentosComponent,
-    DepartamentoDetalheComponent
+    DepartamentoDetalheComponent,
+    DepartamentoFormComponent
   ],
   providers: [
     DepartamentosService

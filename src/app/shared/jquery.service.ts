@@ -8,6 +8,6 @@ export class JqueryService {
   constructor() { }
 
   ativaSideBar() {
-    $(".button-collapse").sideNav();
+    $('.button-collapse').sideNav();
   }
 }

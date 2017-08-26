@@ -33,4 +33,21 @@ export class DepartamentosService {
       .get(`${ global.enderecoSite }departamentos/${id}`, { headers: this.headers })
       .map(response => response.json() as Departamento);
   }
+
+  saveDepartamento(departamento: Departamento): Observable<Departamento> {
+    if (departamento == null) {
+      return;
+    }
+    if (departamento.id == null) {
+      return this.http
+        .post(`${ global.enderecoSite }departamentos/`,
+            JSON.stringify(departamento), { headers: this.headers })
+        .map(response => response.json() as Departamento);
+    } else {
+      return this.http
+        .put(`${ global.enderecoSite }departamentos/${departamento.id}`,
+            JSON.stringify(departamento), { headers: this.headers })
+        .map(response => response.json() as Departamento);
+    }
+  }
 }

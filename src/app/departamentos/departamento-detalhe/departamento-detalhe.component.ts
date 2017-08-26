@@ -16,22 +16,17 @@ export class DepartamentoDetalheComponent implements OnInit, OnDestroy {
   inscricao: Subscription;
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private departamentoService: DepartamentosService
   ) { }
 
-  ngOnInit() {
-    this.getDepartamento();
+  getDepartamento() {
+    this.inscricao = this.route.data.subscribe(
+      data => this.departamento = data.departamento
+    );
   }
 
-  getDepartamento() {
-    this.inscricao = this.route.params.subscribe(
-      params => {
-        const id = +params['id'];
-        this.departamentoService.getDepartamento(id)
-            .subscribe(departamento => this.departamento = departamento);
-      }
-    );
+  ngOnInit() {
+    this.getDepartamento();
   }
 
   ngOnDestroy() {

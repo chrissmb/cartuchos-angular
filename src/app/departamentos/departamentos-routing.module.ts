@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DepartamentosComponent } from './departamentos.component';
 import { DepartamentoFormComponent } from './departamento-form/departamento-form.component';
+import { DepartamentoResolver } from './departamento.resolver';
 
 const routes: Routes = [
   {
@@ -11,8 +12,10 @@ const routes: Routes = [
     component: DepartamentosComponent,
     children: [
       { path: 'novo', component: DepartamentoFormComponent },
-      { path: ':id', component: DepartamentoDetalheComponent },
-      { path: ':id/edit', component: DepartamentoFormComponent }
+      { path: ':id', component: DepartamentoDetalheComponent,
+          resolve: {departamento: DepartamentoResolver} },
+      { path: ':id/edit', component: DepartamentoFormComponent,
+          resolve: {departamento: DepartamentoResolver} }
     ]
   }
 ];

@@ -1,0 +1,14 @@
+<div>
+  <div class="input-field col s12 l6">
+    <input type="text" id="usuario" class="validate" [(ngModel)]="usuario.username"/>
+    <label for="usuario">Usuário</label>
+  </div>
+  <div class="input-field col s12 l6">
+    <input type="password" id="senha" class="validate" [(ngModel)]="usuario.senha"/>
+    <label for="senha">Senha</label>
+  </div>
+  <button class="btn waves-effect waves-light" (click)="fazerLogin()">
+    Login
+    <i class="material-icons right">send</i>
+  </button>
+</div>

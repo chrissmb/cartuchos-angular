@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 
 import { Departamento } from './departamento';
@@ -10,6 +11,7 @@ import * as global from '../shared/global';
 export class DepartamentosService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
+  private subject = new Subject();
 
   constructor(private http: Http) {
     const auth = window.btoa('chris:123456');
@@ -49,5 +51,13 @@ export class DepartamentosService {
             JSON.stringify(departamento), { headers: this.headers })
         .map(response => response.json() as Departamento);
     }
+  }
+
+  sendRefreshDepartamentos() {
+    this.subject.next();
+  }
+
+  recieveRefreshDepartamentos(): Observable<any> {
+    return this.subject.asObservable();
   }
 }

@@ -1,5 +1,3 @@
-import { DepartamentosService } from './../departamentos.service';
-import { Departamento } from './../departamento';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Rx';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,6 +7,9 @@ import {
   FormBuilder,
   Validators
 } from '@angular/forms';
+
+import { DepartamentosService } from './../departamentos.service';
+import { Departamento } from './../departamento';
 
 @Component({
   selector: 'app-departamento-form',
@@ -31,7 +32,10 @@ export class DepartamentoFormComponent implements OnInit, OnDestroy {
   onSubmit() {
     if (this.formulario.valid) {
       this.departamentosService.saveDepartamento(this.departamento)
-        .subscribe(departamento => this.router.navigate([`/departamentos/${departamento.id}`]));
+        .subscribe(departamento => {
+          this.router.navigate([`/departamentos/${departamento.id}`]);
+          this.departamentosService.sendRefreshDepartamentos();
+      });
     }
   }
 

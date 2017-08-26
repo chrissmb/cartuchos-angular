@@ -12,7 +12,8 @@
       </a>
       <span class="card-title">Departamentos</span>
       <p>
-        <input type="checkbox" id="inativos" [(ngModel)]="consultaInativos"/>
+        <input type="checkbox" id="inativos" [(ngModel)]="consultaInativos"
+            (change)="getDepartamentos()"/>
         <label for="inativos">Exibir itens inativos</label>
       </p>
 

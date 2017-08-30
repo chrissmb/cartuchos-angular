@@ -35,4 +35,3 @@ export class DepartamentosComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 }
-

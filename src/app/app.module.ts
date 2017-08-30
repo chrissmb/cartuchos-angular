@@ -9,11 +9,16 @@ import { AppComponent } from './app.component';
 import { JqueryService } from './shared/jquery.service';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './login/auth.service';
+import { AuthGuard } from './guards/auth.guard';
+import { MenuComponent } from './menu/menu.component';
+import { PaginaInvalidaComponent } from './pagina-invalida/pagina-invalida.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    MenuComponent,
+    PaginaInvalidaComponent
   ],
   imports: [
     MaterializeModule,
@@ -24,7 +29,8 @@ import { AuthService } from './login/auth.service';
   ],
   providers: [
     JqueryService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

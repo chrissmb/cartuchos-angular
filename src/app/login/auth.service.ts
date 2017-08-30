@@ -1,6 +1,6 @@
 import { Http, Headers } from '@angular/http';
 import { Router } from '@angular/router';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import 'rxjs/add/operator/map';
 
 import * as global from '../shared/global';
@@ -9,9 +9,9 @@ import { Usuario } from '../usuarios/usuario';
 @Injectable()
 export class AuthService {
 
-  autenticado = false;
-  private headers = new Headers({'Content-Type': 'application/json'});
-  usuarioLogado: Usuario;
+  private autenticado = false;
+  private headers: Headers;
+  exibeMenuEmitter = new EventEmitter<boolean>();
 
   constructor(
     private router: Router,
@@ -19,17 +19,34 @@ export class AuthService {
   ) { }
 
   fazerLogin(usuario: Usuario) {
-    const auth = window.btoa('chris:123456');
-    this.headers.append('Authorization', 'Basic ' + auth);
+    this.headers = this.criaHeaders(usuario);
     const observable = this.http
         .get(`${ global.enderecoSite }usuarios/logado`, { headers: this.headers })
         .map(response => response.json() as Usuario);
     observable.subscribe(user => {
       if (user != null) {
         this.autenticado = true;
-        this.usuarioLogado = user;
-        console.log(user);
+        this.exibeMenuEmitter.emit(true);
+        this.router.navigate(['/']);
+      } else {
+        this.exibeMenuEmitter.emit(false);
+        this.autenticado = false;
       }
     });
+  }
+
+  private criaHeaders(usuario: Usuario): Headers {
+    const auth = window.btoa(`${usuario.username}:${usuario.senha}`);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', 'Basic ' + auth);
+    return headers;
+  }
+
+  getHeaders(): Headers {
+    return this.headers;
+  }
+
+  estaAutenticado() {
+    return this.autenticado;
   }
 }

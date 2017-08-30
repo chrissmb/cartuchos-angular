@@ -6,16 +6,16 @@ import 'rxjs/add/operator/map';
 
 import { Departamento } from './departamento';
 import * as global from '../shared/global';
+import { AuthService } from '../login/auth.service';
 
 @Injectable()
 export class DepartamentosService {
 
-  private headers = new Headers({'Content-Type': 'application/json'});
+  private headers: Headers;
   private subject = new Subject();
 
-  constructor(private http: Http) {
-    const auth = window.btoa('chris:123456');
-    this.headers.append('Authorization', 'Basic ' + auth);
+  constructor(private http: Http, authService: AuthService) {
+    this.headers = authService.getHeaders();
   }
 
   getDepartamentosAtivos(): Observable<Departamento[]> {

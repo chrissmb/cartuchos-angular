@@ -1,0 +1,91 @@
+<ul id="dropdownCadastro" class="dropdown-content">
+  <li><a routerLink="/cartuchos">Cartucho</a></li>
+  <li><a routerLink="/departamentos">Departamento</a></li>
+</ul>
+
+<ul id="dropdownEstoque" class="dropdown-content">
+    <li><a routerLink="/">Entrada</a></li>
+    <li><a routerLink="/">Saída</a></li>
+</ul>
+
+<ul id="dropdownUser" class="dropdown-content">
+    <li><a routerLink="/">Alterar senha</a></li>
+    <li><a routerLink="/">Logout</a></li>
+</ul>
+
+<nav>
+  <div class="nav-wrapper">
+    <a routerLink="/" class="brand-logo">CARTUCHOS</a>
+    <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <a class="dropdown-button" href="#!" data-activates="dropdownCadastro">
+          <i class="material-icons left">view_list</i>
+          Cadastro
+          <i class="material-icons right">arrow_drop_down</i>
+        </a>
+      </li>
+      <li>
+        <a class="dropdown-button" href="#!" data-activates="dropdownEstoque">
+          <i class="material-icons left">inbox</i>
+          Estoque
+          <i class="material-icons right">arrow_drop_down</i>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/registros">
+          <i class="material-icons left">import_contacts</i>
+          Registros
+        </a>
+      </li>
+      <li>
+        <a class="dropdown-button" href="#!" data-activates="dropdownUser">
+          <i class="material-icons left">person</i>
+          Usuário
+          <i class="material-icons right">arrow_drop_down</i>
+        </a>
+      </li>
+    </ul>
+    <ul class="side-nav" id="mobile-menu">
+
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header">Cadastro<i class="material-icons right">arrow_drop_down</i></a>
+            <div class="collapsible-body">
+              <ul>
+                  <li><a routerLink="/cartuchos">Cartucho</a></li>
+                  <li><a routerLink="/departamentos">Departamento</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header">Estoque<i class="material-icons right">arrow_drop_down</i></a>
+            <div class="collapsible-body">
+              <ul>
+                  <li><a routerLink="/">Entrada</a></li>
+                  <li><a routerLink="/">Saída</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+
+        <li><a href="#">Registros<i class="material-icons right">chevron_right</i></a></li>
+
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header">Usuário<i class="material-icons right">arrow_drop_down</i></a>
+            <div class="collapsible-body">
+              <ul>
+                  <li><a routerLink="/">Alterar senha</a></li>
+                  <li><a routerLink="/">Logout</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+
+    </ul>
+  </div>
+</nav>

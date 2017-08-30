@@ -7,18 +7,20 @@ import { PaginaInvalidaComponent } from './pagina-invalida/pagina-invalida.compo
 
 const routes: Routes = [
   {
-    path: 'departamentos',
-    loadChildren: 'app/departamentos/departamentos.module#DepartamentosModule',
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'login',
     component: LoginComponent
   },
   {
+    path: 'departamentos',
+    loadChildren: 'app/departamentos/departamentos.module#DepartamentosModule',
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard]
+  },
+  {
     path: 'home',
     loadChildren: 'app/home/home.module#HomeModule',
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard]
   },
   {
     path: '',

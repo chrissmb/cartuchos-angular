@@ -1,16 +1,13 @@
 <ul id="dropdownCadastro" class="dropdown-content">
-  <li><a routerLink="/cartuchos">Cartucho</a></li>
-  <li><a routerLink="/departamentos">Departamento</a></li>
+  <app-dropdown-cadastro></app-dropdown-cadastro>
 </ul>
 
 <ul id="dropdownEstoque" class="dropdown-content">
-    <li><a routerLink="/">Entrada</a></li>
-    <li><a routerLink="/">Saída</a></li>
+    <app-dropdown-estoque></app-dropdown-estoque>
 </ul>
 
 <ul id="dropdownUser" class="dropdown-content">
-    <li><a routerLink="/">Alterar senha</a></li>
-    <li><a routerLink="/">Logout</a></li>
+    <app-dropdown-usuario></app-dropdown-usuario>
 </ul>
 
 <nav>
@@ -53,8 +50,7 @@
             <a class="collapsible-header">Cadastro<i class="material-icons right">arrow_drop_down</i></a>
             <div class="collapsible-body">
               <ul>
-                  <li><a routerLink="/cartuchos">Cartucho</a></li>
-                  <li><a routerLink="/departamentos">Departamento</a></li>
+                <app-dropdown-cadastro></app-dropdown-cadastro>
               </ul>
             </div>
           </li>
@@ -65,22 +61,20 @@
             <a class="collapsible-header">Estoque<i class="material-icons right">arrow_drop_down</i></a>
             <div class="collapsible-body">
               <ul>
-                  <li><a routerLink="/">Entrada</a></li>
-                  <li><a routerLink="/">Saída</a></li>
+                <app-dropdown-estoque></app-dropdown-estoque>
               </ul>
             </div>
           </li>
         </ul>
 
-        <li><a href="#">Registros<i class="material-icons right">chevron_right</i></a></li>
+        <li><a routerLink="/registros">Registros<i class="material-icons right">chevron_right</i></a></li>
 
         <ul class="collapsible collapsible-accordion">
           <li>
             <a class="collapsible-header">Usuário<i class="material-icons right">arrow_drop_down</i></a>
             <div class="collapsible-body">
               <ul>
-                  <li><a routerLink="/">Alterar senha</a></li>
-                  <li><a routerLink="/">Logout</a></li>
+                <app-dropdown-usuario></app-dropdown-usuario>
               </ul>
             </div>
           </li>

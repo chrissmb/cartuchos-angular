@@ -12,13 +12,19 @@ import { AuthService } from './login/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { MenuComponent } from './menu/menu.component';
 import { PaginaInvalidaComponent } from './pagina-invalida/pagina-invalida.component';
+import { DropdownCadastroComponent } from './menu/dropdown-cadastro/dropdown-cadastro.component';
+import { DropdownEstoqueComponent } from './menu/dropdown-estoque/dropdown-estoque.component';
+import { DropdownUsuarioComponent } from './menu/dropdown-usuario/dropdown-usuario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MenuComponent,
-    PaginaInvalidaComponent
+    PaginaInvalidaComponent,
+    DropdownCadastroComponent,
+    DropdownEstoqueComponent,
+    DropdownUsuarioComponent
   ],
   imports: [
     MaterializeModule,

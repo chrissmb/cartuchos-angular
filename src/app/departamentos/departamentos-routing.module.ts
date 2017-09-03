@@ -8,14 +8,12 @@ import { DepartamentoResolver } from './departamento.resolver';
 
 const routes: Routes = [
   {
-    path: '',
-    component: DepartamentosComponent,
-    children: [
+    path: '', component: DepartamentosComponent, children: [
       { path: 'novo', component: DepartamentoFormComponent },
       { path: ':id', component: DepartamentoDetalheComponent,
-          resolve: {departamento: DepartamentoResolver} },
+          resolve: { departamento: DepartamentoResolver } },
       { path: ':id/edit', component: DepartamentoFormComponent,
-          resolve: {departamento: DepartamentoResolver} }
+          resolve: { departamento: DepartamentoResolver } }
     ]
   }
 ];

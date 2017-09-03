@@ -9,25 +9,26 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-  },
-  {
+  }, {
     path: 'departamentos',
     loadChildren: 'app/departamentos/departamentos.module#DepartamentosModule',
     canActivate: [AuthGuard],
     canLoad: [AuthGuard]
-  },
-  {
+  }, {
+    path: 'cartuchos',
+    loadChildren: 'app/cartuchos/cartuchos.module#CartuchosModule',
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard]
+  }, {
     path: 'home',
     loadChildren: 'app/home/home.module#HomeModule',
     canActivate: [AuthGuard],
     canLoad: [AuthGuard]
-  },
-  {
+  }, {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
-  },
-  {
+  }, {
     path: '**',
     component: PaginaInvalidaComponent
   }

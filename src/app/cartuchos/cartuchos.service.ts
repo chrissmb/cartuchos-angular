@@ -13,11 +13,11 @@ export class CartuchosService {
 
   private headers: Headers;
   private subject = new Subject();
-  
+
   constructor(private http: Http, authService: AuthService) {
     this.headers = authService.getHeaders();
   }
-  
+
   getCartuchosAtivos(): Observable<Cartucho[]> {
     return this.http
       .get(`${ global.enderecoSite }cartuchos`, { headers: this.headers })

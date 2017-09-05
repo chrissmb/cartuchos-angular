@@ -30,8 +30,6 @@ export class AuthGuard implements CanActivate, CanLoad {
   }
 
   canLoad(route: Route): Observable<boolean>|Promise<boolean>|boolean {
-    // console.log(route);
-    console.log(this.route.snapshot.url);
     return this.verificaAcesso(route.path);
   }
 }

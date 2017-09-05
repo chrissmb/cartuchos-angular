@@ -28,7 +28,7 @@ export class DepartamentosComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getDepartamentos();
     this.subscription = this.departamentosService.recieveRefreshDepartamentos()
-      .subscribe(dados => this.getDepartamentos());
+        .subscribe(dados => this.getDepartamentos());
   }
 
   ngOnDestroy() {

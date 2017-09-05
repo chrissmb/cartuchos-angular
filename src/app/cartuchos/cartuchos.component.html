@@ -1,3 +1,31 @@
-<p>
-  cartuchos works!
-</p>
+<div class="container">
+  <div class="row">
+    <router-outlet></router-outlet>
+    <div class="card col l6 s12 left">
+      <a class="btn-floating waves-effect waves-light red right"
+        routerLink="novo">
+        <i class="material-icons">add</i>
+      </a>
+      <a class="btn-floating waves-effect waves-light red right"
+          (click)="getCartuchos()">
+        <i class="material-icons">refresh</i>
+      </a>
+      <span class="card-title">Cartuchos</span>
+      <p>
+        <input type="checkbox" id="inativos" [(ngModel)]="consultaInativos"
+            (change)="getCartuchos()"/>
+        <label for="inativos">Exibir itens inativos</label>
+      </p>
+
+      <div class="collection">
+          <a class="collection-item"
+              *ngFor="let cartucho of cartuchos"
+              routerLinkActive="active"
+              [routerLink]="['/cartuchos', cartucho.id]"
+              [style.color]="!cartucho.ativo ? 'purple' : ''">
+            {{ cartucho.descricao }}
+          </a>
+      </div>
+    </div>
+  </div>
+</div>

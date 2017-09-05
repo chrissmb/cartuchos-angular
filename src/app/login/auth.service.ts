@@ -18,7 +18,7 @@ export class AuthService {
     private http: Http
   ) { }
 
-  fazerLogin(usuario: Usuario) {
+  fazerLogin(usuario: Usuario, returnUrl: string) {
     this.headers = this.criaHeaders(usuario);
     const observable = this.http
         .get(`${ global.enderecoSite }usuarios/logado`, { headers: this.headers })
@@ -27,7 +27,7 @@ export class AuthService {
       if (user != null) {
         this.autenticado = true;
         this.exibeMenuEmitter.emit(true);
-        this.router.navigate(['/']);
+        this.router.navigate([returnUrl]);
       } else {
         this.exibeMenuEmitter.emit(false);
         this.autenticado = false;

@@ -31,6 +31,5 @@ export class LoginComponent implements OnInit {
     this.route.queryParams.subscribe(
       params => this.returnUrl = params['returnUrl']
     );
-    console.log(this.returnUrl);
   }
 }

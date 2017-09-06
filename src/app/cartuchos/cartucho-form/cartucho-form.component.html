@@ -1,3 +1,29 @@
-<p>
-  catucho-form works!
-</p>
+<div class="card col l6 s12 right">
+  <div class="card-content">
+    <span class="card-title">Formulário de cartucho</span>
+
+    <form [formGroup]="formulario">
+      <div class="input-field">
+        <input type="text" id="descricao" class="validate" [(ngModel)]="cartucho.descricao"
+            formControlName="descricao" maxlength="20" minlength="2" #desc>
+        <label for="descricao" [class.active]="desc.value != ''">Descrição</label>
+      </div>
+      <p>
+        <input type="checkbox" id="ativo" formControlName="ativo"
+            [(ngModel)]="cartucho.ativo"/>
+        <label for="ativo" >Ativo</label>
+      </p>
+    </form>
+
+  </div>
+  <div class="card-action">
+    <a class="btn-floating btn-large waves-effect waves-light red"
+        routerLink="/cartuchos">
+      <i class="material-icons">cancel</i>
+    </a>
+    <a class="btn-floating btn-large waves-effect waves-light red right"
+        (click)="onSubmit()">
+      <i class="material-icons">save</i>
+    </a>
+  </div>
+</div>

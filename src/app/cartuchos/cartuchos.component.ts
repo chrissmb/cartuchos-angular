@@ -27,8 +27,9 @@ export class CartuchosComponent implements OnInit, OnDestroy {
     }
   }
   ngOnInit() {
+    this.getCartuchos();
     this.subscription = this.cartuchosService.recieveRefreshCartuchos()
-        .subscribe(dados => this.getCartuchos);
+        .subscribe(dados => this.getCartuchos());
   }
 
   ngOnDestroy() {

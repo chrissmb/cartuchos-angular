@@ -35,6 +35,11 @@ export class AuthService {
     });
   }
 
+  fazerLogout() {
+    this.router.navigate(['/login']);
+    window.location.reload();
+  }
+
   private criaHeaders(usuario: Usuario): Headers {
     const auth = window.btoa(`${usuario.username}:${usuario.senha}`);
     const headers = new Headers({'Content-Type': 'application/json'});

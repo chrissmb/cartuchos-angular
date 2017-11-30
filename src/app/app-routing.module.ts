@@ -20,6 +20,16 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     canLoad: [AuthGuard]
   }, {
+    path: 'estoque',
+    loadChildren: 'app/estoque/estoque.module#EstoqueModule',
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard]
+  }, {
+    path: 'registros',
+    loadChildren: 'app/registros/registros.module#RegistrosModule',
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard]
+  }, {
     path: 'home',
     loadChildren: 'app/home/home.module#HomeModule',
     canActivate: [AuthGuard],

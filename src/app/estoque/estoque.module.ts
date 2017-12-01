@@ -11,6 +11,10 @@ import { EstoqueSaidaComponent } from './estoque-saida/estoque-saida.component';
     CommonModule,
     EstoqueRoutingModule
   ],
-  declarations: [EstoqueComponent, EstoqueEntradaComponent, EstoqueSaidaComponent]
+  declarations: [
+    EstoqueComponent,
+    EstoqueEntradaComponent,
+    EstoqueSaidaComponent
+  ]
 })
 export class EstoqueModule { }

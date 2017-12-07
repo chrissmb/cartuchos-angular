@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, FormBuilder } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterializeModule } from 'angular2-materialize';
 
 import { EstoqueRoutingModule } from './estoque-routing.module';
@@ -14,6 +14,7 @@ import { DepartamentoResolver } from '../departamentos/departamento.resolver';
   imports: [
     MaterializeModule,
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     EstoqueRoutingModule
   ],

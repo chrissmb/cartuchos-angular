@@ -1,3 +1,21 @@
-<select materialize="material_select" [materializeSelectOptions]="departamentos">
-  <option *ngFor="let departamento of departamentos" [value]="departamento.id">{{ departamento.descricao }}</option>
-</select>
+
+<form [formGroup]="formulario">
+  <legend>Entrada no Estoque</legend>
+  <div class="input-field col s12">
+    <select materialize="material_select"
+        [materializeSelectOptions]="departamentos"
+        formControlName="cartucho">
+      <option *ngFor="let departamento of departamentos" [value]="departamento.id">{{ departamento.descricao }}</option>
+    </select>
+  </div>
+  <div class="input-field">
+    <div class="form-group">
+      <label class="control-label" for="quantidade">Quantidade</label>
+      <span class="help-block"></span>
+      <input type="number" class="form-control"
+          name="quantidade" min="1" formControlName="quantidade">
+    </div>
+  </div>
+
+  <button class="btn" (click)="onSubmit()">Submit</button>
+</form>

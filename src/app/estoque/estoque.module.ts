@@ -9,6 +9,7 @@ import { EstoqueEntradaComponent } from './estoque-entrada/estoque-entrada.compo
 import { EstoqueSaidaComponent } from './estoque-saida/estoque-saida.component';
 import { DepartamentosService } from '../departamentos/departamentos.service';
 import { DepartamentoResolver } from '../departamentos/departamento.resolver';
+import { RegistrosComponent } from './registros/registros.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { DepartamentoResolver } from '../departamentos/departamento.resolver';
   declarations: [
     EstoqueComponent,
     EstoqueEntradaComponent,
-    EstoqueSaidaComponent
+    EstoqueSaidaComponent,
+    RegistrosComponent
   ],
   providers: [
     DepartamentosService,

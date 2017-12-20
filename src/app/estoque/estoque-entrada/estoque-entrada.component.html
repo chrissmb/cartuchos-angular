@@ -1,13 +1,19 @@
 
 <form [formGroup]="formulario">
   <legend>Entrada no Estoque</legend>
+
   <div class="input-field col s12">
     <select materialize="material_select"
-        [materializeSelectOptions]="departamentos"
+        [materializeSelectOptions]="cartuchos"
         formControlName="cartucho">
-      <option *ngFor="let departamento of departamentos" [value]="departamento.id">{{ departamento.descricao }}</option>
+      <option disabled selected>Selecione</option>
+      <option *ngFor="let cartucho of cartuchos" [value]="cartucho.id">
+        {{ cartucho.descricao }}
+      </option>
     </select>
+    <label>Cartucho</label>
   </div>
+
   <div class="input-field">
     <div class="form-group">
       <label class="control-label" for="quantidade">Quantidade</label>

@@ -7,9 +7,9 @@ import { EstoqueRoutingModule } from './estoque-routing.module';
 import { EstoqueComponent } from './estoque.component';
 import { EstoqueEntradaComponent } from './estoque-entrada/estoque-entrada.component';
 import { EstoqueSaidaComponent } from './estoque-saida/estoque-saida.component';
-import { DepartamentosService } from '../departamentos/departamentos.service';
-import { DepartamentoResolver } from '../departamentos/departamento.resolver';
 import { RegistrosComponent } from './registros/registros.component';
+import { CartuchosService } from '../cartuchos/cartuchos.service';
+import { CartuchoResolver } from '../cartuchos/cartucho.resolver';
 
 @NgModule({
   imports: [
@@ -26,8 +26,8 @@ import { RegistrosComponent } from './registros/registros.component';
     RegistrosComponent
   ],
   providers: [
-    DepartamentosService,
-    DepartamentoResolver,
+    CartuchosService,
+    CartuchoResolver,
     FormBuilder
   ]
 })

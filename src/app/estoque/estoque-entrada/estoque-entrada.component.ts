@@ -14,7 +14,7 @@ import { Departamento } from '../../departamentos/departamento';
 export class EstoqueEntradaComponent implements OnInit, OnDestroy {
 
   cartuchos: Cartucho[];
-  depCartuchos = Departamento;
+  depCartuchos: Departamento;
   subscription: Subscription;
   formulario: FormGroup;
 

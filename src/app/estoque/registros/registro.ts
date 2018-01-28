@@ -10,7 +10,7 @@ export class Registro {
     public catucho: Cartucho,
     public departamento: Departamento,
     public quantidade: number,
-    public data: Date,
+    public data: number,
     public operacao: Operacao,
     public usuario: Usuario
   ) {}

@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 
 import * as global from '../shared/global';
 import { AuthService } from '../login/auth.service';
-import { Registro } from './usuario';
+import { Usuario } from './usuario';
 
 @Injectable()
 export class UsuariosService {

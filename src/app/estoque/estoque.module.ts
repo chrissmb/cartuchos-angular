@@ -8,8 +8,10 @@ import { EstoqueComponent } from './estoque.component';
 import { EstoqueEntradaComponent } from './estoque-entrada/estoque-entrada.component';
 import { EstoqueSaidaComponent } from './estoque-saida/estoque-saida.component';
 import { RegistrosComponent } from './registros/registros.component';
+import { RegistrosService } from './registros/registros.service';
 import { CartuchosService } from '../cartuchos/cartuchos.service';
 import { CartuchoResolver } from '../cartuchos/cartucho.resolver';
+import { UsuariosService } from '../usuarios/usuarios.service';
 
 @NgModule({
   imports: [
@@ -28,6 +30,8 @@ import { CartuchoResolver } from '../cartuchos/cartucho.resolver';
   providers: [
     CartuchosService,
     CartuchoResolver,
+    RegistrosService,
+    UsuariosService,
     FormBuilder
   ]
 })

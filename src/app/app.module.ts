@@ -14,6 +14,7 @@ import { PaginaInvalidaComponent } from './pagina-invalida/pagina-invalida.compo
 import { DropdownCadastroComponent } from './menu/dropdown-cadastro/dropdown-cadastro.component';
 import { DropdownEstoqueComponent } from './menu/dropdown-estoque/dropdown-estoque.component';
 import { DropdownUsuarioComponent } from './menu/dropdown-usuario/dropdown-usuario.component';
+import { PaginationComponent } from './shared/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DropdownUsuarioComponent } from './menu/dropdown-usuario/dropdown-usuar
     PaginaInvalidaComponent,
     DropdownCadastroComponent,
     DropdownEstoqueComponent,
-    DropdownUsuarioComponent
+    DropdownUsuarioComponent,
+    PaginationComponent
   ],
   imports: [
     MaterializeModule,

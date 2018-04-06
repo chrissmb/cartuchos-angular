@@ -1,0 +1,34 @@
+<ng-content></ng-content>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="waves-effect">
+      <a [href]="linkNulo" (click)="primeiraPag()">
+        <i class="material-icons">first_page</i>
+      </a>
+    </li>
+    <li class="waves-effect">
+      <a [href]="linkNulo" (click)="paginaAnt()">
+        <i class="material-icons">navigate_before</i>
+      </a>
+    </li>
+    <li class="waves-effect"
+        *ngFor="let pag of diminuiPaginacao(arrayPages)"
+        [class.active]="pag == page">
+      <a [href]="linkNulo" (click)="mudaPag(pag)">
+        {{ pag }}
+      </a>
+    </li>
+    <li class="waves-effect">
+      <a [href]="linkNulo" (click)="proxPagina()">
+        <i class="material-icons">navigate_next</i>
+      </a>
+    </li>
+    <li class="waves-effect">
+      <a [href]="linkNulo" (click)="ultimaPag()">
+        <i class="material-icons">last_page</i>
+      </a>
+    </li>
+    <li class="disabled">Total: {{ totalPages }}</li>
+  </ul>
+</nav>

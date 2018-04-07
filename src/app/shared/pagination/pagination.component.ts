@@ -22,7 +22,7 @@ export class PaginationComponent implements OnInit {
 
   listaPaginas() {
     this.arrayPages = [];
-    for (let i = 1; i <= this.totalPages; i++) {
+    for (let i = 0; i < this.totalPages; i++) {
       this.arrayPages.push(i);
     }
   }
@@ -38,23 +38,23 @@ export class PaginationComponent implements OnInit {
   }
 
   proxPagina() {
-    if (this.page < this.totalPages) {
+    if (this.page < this.totalPages - 1) {
       this.mudaPag(this.page + 1);
     }
   }
 
   paginaAnt() {
-    if (this.page > 1) {
+    if (this.page > 0) {
       this.mudaPag(this.page - 1);
     }
   }
 
   primeiraPag() {
-    this.mudaPag(1);
+    this.mudaPag(0);
   }
 
   ultimaPag() {
-    this.mudaPag(this.totalPages);
+    this.mudaPag(this.totalPages - 1);
   }
 
   diminuiPaginacao(pags) {
@@ -64,8 +64,8 @@ export class PaginationComponent implements OnInit {
       i = 0;
     }
     let f = i + this.qtdPaginacao;
-    if (f > pags.length) {
-      f = pags.length;
+    if (f > pags.length - 1) {
+      f = pags.length - 1;
       i = f - this.qtdPaginacao;
       if (i < 0) {
         i = 0;

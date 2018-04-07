@@ -18,10 +18,11 @@ export class RegistrosService {
     this.headers = authService.getHeaders();
   }
 
-  getRegistros(): Observable<Registro[]> {
+  getRegistros(page: number, size: number): Observable<any> {
     return this.http
-      .get(`${ global.enderecoSite }registros`, { headers: this.headers })
-      .map(response => response.json() as Registro[]);
+      .get(`${ global.enderecoSite }registros/pageable?page=${ page }&size=${ size }`,
+      { headers: this.headers })
+      .map(response => response.json());
   }
 
   getRegistro(id: number): Observable<Registro[]> {

@@ -12,6 +12,8 @@ import { RegistrosService } from './registros/registros.service';
 import { CartuchosService } from '../cartuchos/cartuchos.service';
 import { CartuchoResolver } from '../cartuchos/cartucho.resolver';
 import { UsuariosService } from '../usuarios/usuarios.service';
+import { PaginationComponent } from '../shared/pagination/pagination.component';
+
 
 @NgModule({
   imports: [
@@ -25,7 +27,8 @@ import { UsuariosService } from '../usuarios/usuarios.service';
     EstoqueComponent,
     EstoqueEntradaComponent,
     EstoqueSaidaComponent,
-    RegistrosComponent
+    RegistrosComponent,
+    PaginationComponent
   ],
   providers: [
     CartuchosService,

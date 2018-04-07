@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class PaginationComponent implements OnInit {
   @Input('page') page: number;
-  @Input('perPage') perPage: number;
+  @Input('size') size: number;
   @Input('total') total: number;
   totalPages: number;
   qtdPaginacao = 3;

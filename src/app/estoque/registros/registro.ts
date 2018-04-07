@@ -7,7 +7,7 @@ export class Registro {
 
   constructor(
     public id: number,
-    public catucho: Cartucho,
+    public cartucho: Cartucho,
     public departamento: Departamento,
     public quantidade: number,
     public data: number,

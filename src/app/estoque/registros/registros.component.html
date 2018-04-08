@@ -1,5 +1,21 @@
 <h4>Registros</h4>
 
+<div class="row">
+  <div class="input-field col s4">
+    <input type="text" name="dataInicio">
+    <label for="dataInicio">Data início</label>
+  </div>
+  <div class="input-field col s4">
+    <input type="text" name="dataFim">
+    <label for="dataInicio">Data fim</label>
+  </div>
+  <div class="col s4">
+    <a class="waves-effect waves-light btn">
+      <i class="material-icons left">search</i>Pesquisar
+    </a>
+  </div>
+</div>
+
 <app-pagination
     [page]="page"
     [total]="total"

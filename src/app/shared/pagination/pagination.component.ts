@@ -10,7 +10,7 @@ export class PaginationComponent implements OnInit {
   @Input('size') size: number;
   @Input('total') total: number;
   totalPages: number;
-  qtdPaginacao = 3;
+  qtdPaginacao = 5;
   arrayPages: number[];
   @Output() mudouPagina = new EventEmitter();
   linkNulo = 'javascript:void(0)';
@@ -22,7 +22,7 @@ export class PaginationComponent implements OnInit {
 
   listaPaginas() {
     this.arrayPages = [];
-    for (let i = 0; i < this.totalPages; i++) {
+    for (let i = 1; i <= this.totalPages; i++) {
       this.arrayPages.push(i);
     }
   }
@@ -38,23 +38,23 @@ export class PaginationComponent implements OnInit {
   }
 
   proxPagina() {
-    if (this.page < this.totalPages - 1) {
+    if (this.page < this.totalPages) {
       this.mudaPag(this.page + 1);
     }
   }
 
   paginaAnt() {
-    if (this.page > 0) {
+    if (this.page > 1) {
       this.mudaPag(this.page - 1);
     }
   }
 
   primeiraPag() {
-    this.mudaPag(0);
+    this.mudaPag(1);
   }
 
   ultimaPag() {
-    this.mudaPag(this.totalPages - 1);
+    this.mudaPag(this.totalPages);
   }
 
   diminuiPaginacao(pags) {
@@ -64,8 +64,8 @@ export class PaginationComponent implements OnInit {
       i = 0;
     }
     let f = i + this.qtdPaginacao;
-    if (f > pags.length - 1) {
-      f = pags.length - 1;
+    if (f > pags.length) {
+      f = pags.length;
       i = f - this.qtdPaginacao;
       if (i < 0) {
         i = 0;

@@ -13,7 +13,7 @@ export class RegistrosComponent implements OnInit {
 
   registros: Registro[];
   page = 0;
-  size = 4;
+  size = 10;
   total: number;
   totalPages: number;
 
@@ -24,10 +24,10 @@ export class RegistrosComponent implements OnInit {
   }
 
   getRegistros(page: number) {
-    this.registrosService.getRegistros(page, this.size)
+    this.registrosService.getRegistros(page - 1, this.size)
       .subscribe(dados => {
         this.registros = dados.content;
-        this.page = dados.number;
+        this.page = dados.number + 1;
         this.total = dados.totalElements;
         this.totalPages = dados.totalPages;
       });

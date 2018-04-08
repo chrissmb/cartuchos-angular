@@ -12,19 +12,19 @@ import { PaginationComponent } from '../../shared/pagination/pagination.componen
 export class RegistrosComponent implements OnInit {
 
   registros: Registro[];
-  page = 0;
-  size = 10;
+  page = 1;
+  size = 7;
   total: number;
   totalPages: number;
+  dataInicio: string ;
+  dataFim: string;
 
   constructor(private registrosService: RegistrosService) { }
 
-  ngOnInit() {
-    this.getRegistros(this.page);
-  }
+  ngOnInit() { }
 
   getRegistros(page: number) {
-    this.registrosService.getRegistros(page - 1, this.size)
+    this.registrosService.getRegistros(page - 1, this.size, this.dataInicio, this.dataFim)
       .subscribe(dados => {
         this.registros = dados.content;
         this.page = dados.number + 1;
@@ -35,6 +35,10 @@ export class RegistrosComponent implements OnInit {
 
   mudouPagina(evento) {
     this.getRegistros(evento.valor);
+  }
+
+  pesquisar() {
+    this.getRegistros(1);
   }
 
 }

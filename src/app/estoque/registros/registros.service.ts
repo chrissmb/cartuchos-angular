@@ -18,11 +18,12 @@ export class RegistrosService {
     this.headers = authService.getHeaders();
   }
 
-  getRegistros(page: number, size: number): Observable<any> {
-    return this.http
-      .get(`${ global.enderecoSite }registros/pageable?page=${ page }&size=${ size }`,
-      { headers: this.headers })
-      .map(response => response.json());
+  getRegistros(page: number, size: number, dataInicio: string, dataFim: string): Observable<any> {
+    let url = `${ global.enderecoSite }registros/pageable?page=${ page }&size=${ size }`;
+    if (dataInicio != null && dataFim != null) {
+      url = url + `&dtinicio=${ dataInicio }&dtfim=${ dataFim }`;
+    }
+    return this.http.get(url, { headers: this.headers }).map(response => response.json());
   }
 
   getRegistro(id: number): Observable<Registro[]> {
@@ -40,4 +41,5 @@ export class RegistrosService {
           JSON.stringify(registro), { headers: this.headers })
       .map(response => response.json() as Registro);
   }
+
 }

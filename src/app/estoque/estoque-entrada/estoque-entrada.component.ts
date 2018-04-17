@@ -56,7 +56,7 @@ export class EstoqueEntradaComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     if (this.formulario.valid) {
-      this.getCartucho();
+      // this.getCartucho();
       console.log(JSON.stringify(this.registro));
       this.registrosService.saveRegistro(this.registro)
       .subscribe(registro => this.registro = registro);
@@ -69,13 +69,9 @@ export class EstoqueEntradaComponent implements OnInit, OnDestroy {
     this.registro = new Registro();
     this.registro.quantidade = 0;
     this.registro.operacao = Operacao.Entrada;
+    this.registro.cartucho = new Cartucho();
     this.usuariosService.getUsuarioLogado()
       .subscribe(usr => this.registro.usuario = usr);
-  }
-
-  getCartucho() {
-    this.registro.cartucho = new Cartucho();
-    this.registro.cartucho.id = this.cartuchoId;
   }
 
 }

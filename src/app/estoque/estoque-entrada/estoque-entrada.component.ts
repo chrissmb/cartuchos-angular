@@ -56,10 +56,8 @@ export class EstoqueEntradaComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     if (this.formulario.valid) {
-      // this.getCartucho();
-      console.log(JSON.stringify(this.registro));
       this.registrosService.saveRegistro(this.registro)
-      .subscribe(registro => this.registro = registro);
+      .subscribe(response => this.registroFactory());
     } else {
       console.log('no no');
     }

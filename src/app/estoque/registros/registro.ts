@@ -4,14 +4,13 @@ import { Usuario } from '../../usuarios/usuario';
 import { Operacao } from './operacao';
 
 export class Registro {
+  id: number;
+  cartucho: Cartucho;
+  departamento: Departamento;
+  quantidade: number;
+  data: number;
+  operacao: Operacao;
+  usuario: Usuario;
 
-  constructor(
-    public id: number,
-    public cartucho: Cartucho,
-    public departamento: Departamento,
-    public quantidade: number,
-    public data: number,
-    public operacao: Operacao,
-    public usuario: Usuario
-  ) {}
+  constructor() {}
 }

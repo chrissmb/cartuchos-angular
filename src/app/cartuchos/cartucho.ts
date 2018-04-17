@@ -1,9 +1,8 @@
 export class Cartucho {
+  id: number;
+  descricao: string;
+  quantidade: number;
+  ativo: boolean;
 
-  constructor(
-    public id: number,
-    public descricao: string,
-    public quantidade: number,
-    public ativo: boolean
-  ) {}
+  constructor() {}
 }

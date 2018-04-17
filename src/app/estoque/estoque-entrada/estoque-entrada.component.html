@@ -6,7 +6,7 @@
     <select materialize="material_select"
         [materializeSelectOptions]="cartuchos"
         formControlName="cartucho"
-        [(ngModel)]="registro.cartucho">
+        [(ngModel)]="cartuchoId">
       <option disabled selected>Selecione</option>
       <option *ngFor="let cartucho of cartuchos" [value]="cartucho.id">
         {{ cartucho.descricao }}

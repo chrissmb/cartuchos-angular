@@ -38,7 +38,10 @@ export class CartuchoFormComponent implements OnInit, OnDestroy {
       data => this.cartucho = data.cartucho
     );
     if (this.cartucho == null) {
-      this.cartucho = new Cartucho(null, '', 0, true);
+      this.cartucho = new Cartucho();
+      this.cartucho.descricao = '';
+      this.cartucho.quantidade = 0;
+      this.cartucho.ativo = true;
     }
     this.formulario = this.formBuilder.group({
       descricao: [null, [

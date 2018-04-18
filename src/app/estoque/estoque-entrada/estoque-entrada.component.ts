@@ -1,10 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs/Rx';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 import { Cartucho } from '../../cartuchos/cartucho';
 import { CartuchosService } from '../../cartuchos/cartuchos.service';
-// import { Departamento } from '../../departamentos/departamento';
 import { RegistrosService } from '../registros/registros.service';
 import { Registro } from '../registros/registro';
 import { Operacao } from '../registros/operacao';
@@ -16,11 +14,9 @@ import { Usuario } from '../../usuarios/usuario';
   templateUrl: './estoque-entrada.component.html',
   styleUrls: ['./estoque-entrada.component.css']
 })
-export class EstoqueEntradaComponent implements OnInit, OnDestroy {
+export class EstoqueEntradaComponent implements OnInit {
 
   cartuchos: Cartucho[];
-  // depCartuchos: Departamento;
-  subscription: Subscription;
   formulario: FormGroup;
   registro: Registro;
   cartuchoId: number;
@@ -34,19 +30,11 @@ export class EstoqueEntradaComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getCartuchos();
-    this.subscription = this.cartuchosService.recieveRefreshCartuchos()
-      .subscribe(dados => this.getCartuchos());
-
     this.registroFactory();
-
     this.formulario = this.formBuilder.group({
       cartucho: [null, Validators.required],
       quantidade: [null, [Validators.required, Validators.min(1)]]
     });
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
   getCartuchos() {
@@ -71,5 +59,4 @@ export class EstoqueEntradaComponent implements OnInit, OnDestroy {
     this.usuariosService.getUsuarioLogado()
       .subscribe(usr => this.registro.usuario = usr);
   }
-
 }

@@ -1,3 +1,41 @@
-<p>
-  estoque-saida works!
-</p>
+
+<form [formGroup]="formulario">
+  <h5>Saída do Estoque</h5>
+
+  <div class="input-field col s12">
+    <select materialize="material_select"
+        [materializeSelectOptions]="cartuchos"
+        formControlName="cartucho"
+        [(ngModel)]="registro.cartucho.id">
+      <option disabled selected>Selecione</option>
+      <option *ngFor="let cartucho of cartuchos" [value]="cartucho.id">
+        {{ cartucho.descricao }}
+      </option>
+    </select>
+    <label>Cartucho</label>
+  </div>
+
+  <div class="input-field">
+    <div class="form-group">
+      <label class="control-label" for="quantidade">Quantidade</label>
+      <span class="help-block"></span>
+      <input type="number" class="form-control" [(ngModel)]="registro.quantidade"
+          name="quantidade" min="1" formControlName="quantidade">
+    </div>
+  </div>
+
+  <div class="input-field col s12">
+    <select materialize="material_select"
+        [materializeSelectOptions]="departamentos"
+        formControlName="departamento"
+        [(ngModel)]="registro.departamento.id">
+      <option disabled selected>Selecione</option>
+      <option *ngFor="let departamento of departamentos" [value]="departamento.id">
+        {{ departamento.descricao }}
+      </option>
+    </select>
+    <label>Departamento</label>
+  </div>
+
+  <button class="btn" (click)="onSubmit()">Submit</button>
+</form>

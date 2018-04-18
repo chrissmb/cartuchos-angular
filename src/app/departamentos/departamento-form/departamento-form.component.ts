@@ -39,7 +39,9 @@ export class DepartamentoFormComponent implements OnInit, OnDestroy {
       data => this.departamento = data.departamento
     );
     if (this.departamento == null) {
-      this.departamento = new Departamento(null, '', true);
+      this.departamento = new Departamento();
+      this.departamento.descricao = '';
+      this.departamento.ativo = true;
     }
 
     this.formulario = this.formBuilder.group({
@@ -50,11 +52,6 @@ export class DepartamentoFormComponent implements OnInit, OnDestroy {
       ]],
       ativo: [null, Validators.required]
     });
-
-    /*this.formulario.setValue({
-      descricao: this.departamento.descricao,
-      ativo: this.departamento.ativo
-    });*/
   }
 
   ngOnDestroy() {

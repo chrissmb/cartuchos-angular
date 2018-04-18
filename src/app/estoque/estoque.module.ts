@@ -13,6 +13,7 @@ import { CartuchosService } from '../cartuchos/cartuchos.service';
 import { CartuchoResolver } from '../cartuchos/cartucho.resolver';
 import { UsuariosService } from '../usuarios/usuarios.service';
 import { PaginationComponent } from '../shared/pagination/pagination.component';
+import { DepartamentosService } from '../departamentos/departamentos.service';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { PaginationComponent } from '../shared/pagination/pagination.component';
   ],
   providers: [
     CartuchosService,
+    DepartamentosService,
     CartuchoResolver,
     RegistrosService,
     UsuariosService,

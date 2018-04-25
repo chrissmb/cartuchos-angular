@@ -8,6 +8,7 @@ import { CartuchoDetalheComponent } from './cartucho-detalhe/cartucho-detalhe.co
 import { CartuchoFormComponent } from './cartucho-form/cartucho-form.component';
 import { CartuchosService } from './cartuchos.service';
 import { CartuchoResolver } from './cartucho.resolver';
+import { CartuchosEstoqueComponent } from './cartuchos-estoque/cartuchos-estoque.component';
 
 
 @NgModule({
@@ -20,12 +21,14 @@ import { CartuchoResolver } from './cartucho.resolver';
   declarations: [
     CartuchosComponent,
     CartuchoDetalheComponent,
-    CartuchoFormComponent
+    CartuchoFormComponent,
+    CartuchosEstoqueComponent
   ],
   providers: [
     CartuchosService,
     CartuchoResolver,
     FormBuilder
-  ]
+  ],
+  exports: [CartuchosEstoqueComponent]
 })
 export class CartuchosModule { }

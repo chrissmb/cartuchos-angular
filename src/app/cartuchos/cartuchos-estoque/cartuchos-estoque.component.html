@@ -1,0 +1,17 @@
+<div class="container">
+  <button class="waves-effect waves-light btn" (click)="getCartuchos()">
+    Atualizar
+  </button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Cartucho</th>
+        <th>Quantidade</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let cartucho of Cartuchos">
+      <td>{{ cartucho.descricao }}</td>
+      <td>{{ cartucho.quantidade }}</td>
+    </tr>
+  </table>
+</div>

@@ -19,20 +19,28 @@ export class AuthService {
   ) { }
 
   fazerLogin(usuario: Usuario, returnUrl: string) {
-    this.headers = this.criaHeaders(usuario);
-    const observable = this.http
-        .get(`${ global.enderecoSite }usuarios/logado`, { headers: this.headers })
-        .map(response => response.json() as Usuario);
-    observable.subscribe(user => {
-      if (user != null) {
-        this.autenticado = true;
-        this.exibeMenuEmitter.emit(true);
-        this.router.navigate([returnUrl]);
-      } else {
-        this.exibeMenuEmitter.emit(false);
-        this.autenticado = false;
-      }
-    });
+    this.http
+        .post(`${ global.enderecoSite }xlogin`, JSON.stringify(usuario))
+        .map(response => response)
+        .subscribe(res => {
+          const authorization = res.headers.get('Authorization');
+          const authArray = authorization.split(' ');
+          const token = authArray[1];
+          this.headers = this.criaHeaders(token);
+          this.http
+              .get(`${ global.enderecoSite }usuarios/logado`, { headers: this.headers })
+              .map(response => response.json() as Usuario)
+              .subscribe(user => {
+                if (user != null) {
+                  this.autenticado = true;
+                  this.exibeMenuEmitter.emit(true);
+                  this.router.navigate([returnUrl]);
+                } else {
+                  this.exibeMenuEmitter.emit(false);
+                  this.autenticado = false;
+                }
+              });
+        });
   }
 
   fazerLogout() {
@@ -40,10 +48,9 @@ export class AuthService {
     window.location.reload();
   }
 
-  private criaHeaders(usuario: Usuario): Headers {
-    const auth = window.btoa(`${usuario.username}:${usuario.senha}`);
+  private criaHeaders(token: string): Headers {
     const headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', 'Basic ' + auth);
+    headers.append('Authorization', token);
     return headers;
   }
 

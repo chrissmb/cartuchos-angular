@@ -18,10 +18,13 @@ export class DepartamentosComponent implements OnInit, OnDestroy {
   constructor(private departamentosService: DepartamentosService) { }
 
   getDepartamentos() {
+    const subscribeDeptos = deptos => {
+      this.departamentos = deptos.filter(x => x.id !== 1);
+    };
     if (this.consultaInativos) {
-      this.departamentosService.getDepartamentosTodos().subscribe(deptos => this.departamentos = deptos);
+      this.departamentosService.getDepartamentosTodos().subscribe(subscribeDeptos);
     } else {
-      this.departamentosService.getDepartamentosAtivos().subscribe(deptos => this.departamentos = deptos);
+      this.departamentosService.getDepartamentosAtivos().subscribe(subscribeDeptos);
     }
   }
 

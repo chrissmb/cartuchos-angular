@@ -37,7 +37,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let registro of registros">
+      <tr *ngFor="let registro of registros"
+          [ngClass]="{'entrada': registro.operacao == 'ENTRADA',
+                      'saida': registro.operacao == 'SAIDA'}">
         <td>{{ registro.data | date:'dd/MM/yyyy' }}</td>
         <td>{{ registro.usuario.username }}</td>
         <td>{{ registro.cartucho.descricao }}</td>

@@ -19,7 +19,7 @@
     <div class="form-group">
       <label class="control-label" for="quantidade">Quantidade</label>
       <span class="help-block"></span>
-      <input type="number" class="form-control" [(ngModel)]="registro.quantidade"
+      <input type="number" class="form-control validate" [(ngModel)]="registro.quantidade"
           name="quantidade" min="1" formControlName="quantidade">
     </div>
   </div>
@@ -37,5 +37,5 @@
     <label>Departamento</label>
   </div>
 
-  <button class="btn" (click)="onSubmit()">Submit</button>
+  <button class="btn" (click)="onSubmit()" [class.disabled]="formulario.invalid">Submit</button>
 </form>

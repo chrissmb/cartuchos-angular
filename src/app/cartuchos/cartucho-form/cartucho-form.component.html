@@ -4,12 +4,12 @@
 
     <form [formGroup]="formulario">
       <div class="input-field">
-        <input type="text" id="descricao" class="validate" [(ngModel)]="cartucho.descricao"
-            formControlName="descricao" maxlength="20" minlength="2" #desc>
-        <label for="descricao" [class.active]="desc.value != ''">Descrição</label>
+        <input type="text" class="validate" [(ngModel)]="cartucho.descricao"
+            formControlName="descricao" maxlength="20" minlength="5" required>
+        <label for="descricao" [class.active]="cartucho.descricao != ''">Descrição</label>
       </div>
       <p>
-        <input type="checkbox" id="ativo" formControlName="ativo"
+        <input type="checkbox" formControlName="ativo"
             [(ngModel)]="cartucho.ativo"/>
         <label for="ativo" >Ativo</label>
       </p>
@@ -22,7 +22,7 @@
       <i class="material-icons">cancel</i>
     </a>
     <a class="btn-floating btn-large waves-effect waves-light red right"
-        (click)="onSubmit()">
+        (click)="onSubmit()" [class.disabled]="formulario.invalid">
       <i class="material-icons">save</i>
     </a>
   </div>

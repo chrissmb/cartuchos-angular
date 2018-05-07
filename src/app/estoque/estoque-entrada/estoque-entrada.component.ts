@@ -46,8 +46,6 @@ export class EstoqueEntradaComponent implements OnInit {
     if (this.formulario.valid) {
       this.registrosService.saveRegistro(this.registro)
       .subscribe(response => this.registroFactory());
-    } else {
-      console.log('no no');
     }
   }
 
@@ -58,5 +56,9 @@ export class EstoqueEntradaComponent implements OnInit {
     this.registro.cartucho = new Cartucho();
     this.usuariosService.getUsuarioLogado()
       .subscribe(usr => this.registro.usuario = usr);
+  }
+
+  getQuantidade() {
+    return this.formulario.get('quantidade');
   }
 }

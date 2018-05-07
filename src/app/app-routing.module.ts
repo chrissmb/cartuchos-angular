@@ -30,6 +30,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     canLoad: [AuthGuard]
   }, {
+    path: 'usuarios',
+    loadChildren: 'app/usuarios/usuarios.module#UsuariosModule',
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard]
+  }, {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'

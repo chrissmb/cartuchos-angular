@@ -1,28 +1,33 @@
+<div class="row">
+  <form [formGroup]="formulario" class="col s12 l6">
+    <h5>Entrada no Estoque</h5>
 
-<form [formGroup]="formulario">
-  <h5>Entrada no Estoque</h5>
-
-  <div class="input-field col s12">
-    <select materialize="material_select"
-        [materializeSelectOptions]="cartuchos"
-        formControlName="cartucho"
-        [(ngModel)]="registro.cartucho.id" required>
-      <option disabled selected>Selecione</option>
-      <option *ngFor="let cartucho of cartuchos" [value]="cartucho.id">
-        {{ cartucho.descricao }}
-      </option>
-    </select>
-    <label>Cartucho</label>
-  </div>
-
-  <div class="input-field">
-    <div class="form-group">
-      <label class="control-label" for="quantidade">Quantidade</label>
-      <input type="number" class="form-control validate" [(ngModel)]="registro.quantidade"
-          name="quantidade" min="1" formControlName="quantidade">
+    <div class="input-field">
+      <select materialize="material_select"
+          [materializeSelectOptions]="cartuchos"
+          formControlName="cartucho"
+          [(ngModel)]="registro.cartucho.id" required>
+        <option disabled selected>Selecione</option>
+        <option *ngFor="let cartucho of cartuchos" [value]="cartucho.id">
+          {{ cartucho.descricao }}
+        </option>
+      </select>
+      <label>Cartucho</label>
     </div>
-  </div>
 
-  <button class="btn" (click)="onSubmit()"
-      [class.disabled]="formulario.invalid">Submit</button>
-</form>
+    <div class="input-field">
+      <div class="form-group">
+        <label class="control-label" for="quantidade">Quantidade</label>
+        <input type="number" class="form-control validate" [(ngModel)]="registro.quantidade"
+            name="quantidade" min="1" formControlName="quantidade">
+      </div>
+    </div>
+
+    <button class="waves-effect waves-light btn" (click)="onSubmit()"
+        [class.disabled]="formulario.invalid">
+      Salvar
+      <i class="material-icons right">save</i>
+    </button>
+  </form>
+
+</div>

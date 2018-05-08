@@ -1,25 +1,32 @@
-<div class="content col s12 l6">
-  <h4>Ateração de senha</h4>
-  {{ formulario.valid }}
-  <div [ngStyle]="{'color': erro? 'red' : 'green'}">{{ msg }}</div>
-  <form [formGroup]="formulario">
-    <div class="input-field">
-      <input type="password" class="validate" formControlName="senhaAtual"
-          required minlength="6">
-      <label for="password">Senha Atual</label>
-    </div>
-    <div class="input-field">
-      <input type="password" class="validate" formControlName="senha"
-          required minlength="6" [ngClass]="validaInput('senha')">
-      <label for="senha">Nova senha</label>
-    </div>
-    <div class="input-field">
-      <input type="password" class="validate" formControlName="confirmaSenha"
-          required minlength="6" [ngClass]="validaInput('confirmaSenha')">
-      <label for="confirmarSenha">Confirmar Senha</label>
-    </div>
+<div class="container">
+  <div class="row">
+    <form [formGroup]="formulario" class="col s12 l6">
+      <h5>Ateração de senha</h5>
 
-    <a class="waves-effect waves-light btn" (click)="saveSenha()"
-        [class.disabled]="formulario.invalid">Alterar senha</a>
-  </form>
+      <div [ngStyle]="{'color': erro? 'red' : 'green'}">{{ msg }}</div>
+
+      <div class="input-field">
+        <input type="password" class="validate" formControlName="senhaAtual"
+            required minlength="6">
+        <label for="password">Senha Atual</label>
+      </div>
+      <div class="input-field">
+        <input type="password" class="validate" formControlName="senha"
+            required minlength="6" [ngClass]="validaInput('senha')">
+        <label for="senha">Nova senha</label>
+      </div>
+      <div class="input-field">
+        <input type="password" class="validate" formControlName="confirmaSenha"
+            required minlength="6" [ngClass]="validaInput('confirmaSenha')">
+        <label for="confirmarSenha">Confirmar Senha</label>
+      </div>
+
+      <a class="waves-effect waves-light btn" (click)="saveSenha()"
+          [class.disabled]="formulario.invalid">
+        Alterar senha
+        <i class="material-icons right">save</i>
+      </a>
+    </form>
+  </div>
+
 </div>

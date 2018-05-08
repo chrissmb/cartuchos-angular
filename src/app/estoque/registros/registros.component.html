@@ -38,8 +38,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let registro of registros"
-          [ngClass]="{'entrada': registro.operacao == 'ENTRADA',
-                      'saida': registro.operacao == 'SAIDA'}">
+          [ngClass]="{'green-text text-darken-4': registro.operacao == 'ENTRADA',
+                      'red-text text-darken-4': registro.operacao == 'SAIDA'}">
         <td>{{ registro.data | date:'dd/MM/yyyy' }}</td>
         <td>{{ registro.usuario.username }}</td>
         <td>{{ registro.cartucho.descricao }}</td>

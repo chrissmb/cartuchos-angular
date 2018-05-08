@@ -8,7 +8,7 @@ import { Cartucho } from '../cartucho';
   styleUrls: ['./cartuchos-estoque.component.css']
 })
 export class CartuchosEstoqueComponent implements OnInit {
-  
+
   cartuchos: Cartucho[];
 
   constructor(private cartuchosService: CartuchosService) { }
@@ -16,7 +16,7 @@ export class CartuchosEstoqueComponent implements OnInit {
   ngOnInit() {
     this.getCartuchos();
   }
-  
+
   getCartuchos() {
     this.cartuchosService.getCartuchosAtivos()
         .subscribe(cartuchos => this.cartuchos = cartuchos);

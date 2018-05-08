@@ -1,3 +1,16 @@
-<p>
-  usuarios works!
-</p>
+<form [formGroup]="formulario">
+  <div class="input-field col s12 l6">
+    <input type="text" class="validate">
+    <label for="password">Senha Atual</label>
+  </div>
+  <div class="input-field col s12 l6">
+    <input type="password" class="validate">
+    <label for="senha">Nova senha</label>
+  </div>
+  <div class="input-field col s12 l6">
+    <input type="password" class="validate">
+    <label for="confirmarSenha">Confirmar Senha</label>
+  </div>
+
+  <a class="waves-effect waves-light btn">Alterar senha</a>
+</form>

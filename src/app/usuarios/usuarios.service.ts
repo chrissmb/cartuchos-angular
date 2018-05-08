@@ -23,4 +23,14 @@ export class UsuariosService {
       .get(`${ global.enderecoSite }usuarios/logado`, { headers: this.headers })
       .map(response => response.json() as Usuario);
   }
+
+  saveSenha(usuario: Usuario): Observable<Usuario> {
+    if (usuario == null || usuario.id == null) {
+      return;
+    }
+    return this.http
+      .put(`${ global.enderecoSite }usuarios/logado`,
+      JSON.stringify(usuario), { headers: this.headers })
+      .map(response => response.json() as Usuario);
+  }
 }

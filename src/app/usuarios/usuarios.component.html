@@ -1,16 +1,25 @@
-<form [formGroup]="formulario">
-  <div class="input-field col s12 l6">
-    <input type="text" class="validate">
-    <label for="password">Senha Atual</label>
-  </div>
-  <div class="input-field col s12 l6">
-    <input type="password" class="validate">
-    <label for="senha">Nova senha</label>
-  </div>
-  <div class="input-field col s12 l6">
-    <input type="password" class="validate">
-    <label for="confirmarSenha">Confirmar Senha</label>
-  </div>
+<div class="content col s12 l6">
+  <h4>Ateração de senha</h4>
+  {{ formulario.valid }}
+  <div [ngStyle]="{'color': erro? 'red' : 'green'}">{{ msg }}</div>
+  <form [formGroup]="formulario">
+    <div class="input-field">
+      <input type="password" class="validate" formControlName="senhaAtual"
+          required minlength="6">
+      <label for="password">Senha Atual</label>
+    </div>
+    <div class="input-field">
+      <input type="password" class="validate" formControlName="senha"
+          required minlength="6" [ngClass]="validaInput('senha')">
+      <label for="senha">Nova senha</label>
+    </div>
+    <div class="input-field">
+      <input type="password" class="validate" formControlName="confirmaSenha"
+          required minlength="6" [ngClass]="validaInput('confirmaSenha')">
+      <label for="confirmarSenha">Confirmar Senha</label>
+    </div>
 
-  <a class="waves-effect waves-light btn">Alterar senha</a>
-</form>
+    <a class="waves-effect waves-light btn" (click)="saveSenha()"
+        [class.disabled]="formulario.invalid">Alterar senha</a>
+  </form>
+</div>

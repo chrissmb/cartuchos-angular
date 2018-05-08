@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   usuario = new Usuario();
   returnUrl: string;
+  erroLogin: string;
 
   constructor(
     private authService: AuthService,
@@ -20,16 +21,13 @@ export class LoginComponent implements OnInit {
   ) { }
 
   fazerLogin() {
-    if (this.returnUrl != null) {
-      this.authService.fazerLogin(this.usuario, this.returnUrl);
-    } else {
-      this.authService.fazerLogin(this.usuario, 'home');
-    }
+    this.authService.fazerLogin(this.usuario, this.returnUrl || 'home');
   }
 
   ngOnInit() {
     this.route.queryParams.subscribe(
       params => this.returnUrl = params['returnUrl']
     );
+    this.authService.erroLogin.subscribe(erro => this.erroLogin = erro);
   }
 }

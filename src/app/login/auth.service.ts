@@ -12,6 +12,7 @@ export class AuthService {
   private autenticado = false;
   private headers: Headers;
   exibeMenuEmitter = new EventEmitter<boolean>();
+  erroLogin = new EventEmitter<string>();
 
   constructor(
     private router: Router,
@@ -39,8 +40,8 @@ export class AuthService {
                   this.exibeMenuEmitter.emit(false);
                   this.autenticado = false;
                 }
-              });
-        });
+              }, () => this.erroLogin.emit('Falha na autênticação'));
+        }, () => this.erroLogin.emit('Falha na autênticação'));
   }
 
   fazerLogout() {

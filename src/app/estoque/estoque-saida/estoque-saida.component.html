@@ -2,6 +2,8 @@
   <form [formGroup]="formulario" class="col s12 l6">
     <h5>Saída do Estoque</h5>
 
+    <div class="red-text text-darken-2">{{ msgErro }}</div>
+
     <div class="input-field">
       <select materialize="material_select"
           [materializeSelectOptions]="cartuchos"

@@ -24,6 +24,7 @@ export class EstoqueSaidaComponent implements OnInit {
   formulario: FormGroup;
   registro: Registro;
   cartuchoId: number;
+  msgErro: string;
 
   constructor(
     private cartuchosService: CartuchosService,
@@ -61,13 +62,20 @@ export class EstoqueSaidaComponent implements OnInit {
   onSubmit() {
     if (this.formulario.valid) {
       this.registrosService.saveRegistro(this.registro)
-      .subscribe(response => this.registroFactory());
-    } else {
-      console.log('no no');
+      .subscribe(
+        response => this.registroFactory(),
+        msg => {
+          this.msgErro = `Falha ao registrar a saída.
+              Certifique-se de ter colocado a quantidade
+              menor ou igual a quantidade em estoque`;
+          console.log(msg);
+        }
+      );
     }
   }
 
   registroFactory() {
+    this.msgErro = '';
     this.registro = new Registro();
     this.registro.quantidade = 0;
     this.registro.operacao = Operacao.Saida;

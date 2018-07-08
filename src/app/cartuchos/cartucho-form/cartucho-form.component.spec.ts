@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CatuchoFormComponent } from './catucho-form.component';
+import { CartuchoFormComponent } from './cartucho-form.component';
 
-describe('CatuchoFormComponent', () => {
-  let component: CatuchoFormComponent;
-  let fixture: ComponentFixture<CatuchoFormComponent>;
+describe('CartuchoFormComponent', () => {
+  let component: CartuchoFormComponent;
+  let fixture: ComponentFixture<CartuchoFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CatuchoFormComponent ]
+      declarations: [ CartuchoFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CatuchoFormComponent);
+    fixture = TestBed.createComponent(CartuchoFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
